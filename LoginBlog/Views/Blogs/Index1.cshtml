@@ -1,0 +1,60 @@
+﻿@model IEnumerable<LoginBlog.Models.Blog>
+@using Microsoft.AspNet.Identity;
+
+@{
+    ViewBag.Title = "Index1";
+}
+
+<h2>Index1</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+
+    if (item.UserId == User.Identity.GetUserId())
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlogName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlogDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlogDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.BlogId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.BlogId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.BlogId })
+            </td>
+
+        </tr>
+    }
+   
+}
+
+</table>

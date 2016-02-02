@@ -1,0 +1,50 @@
+﻿@model LoginBlog.Models.Blog
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Blog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlogName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlogDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlogDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    
+    @Html.ActionLink("Back to List", "Index")
+</p>
